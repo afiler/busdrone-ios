@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F124AE72175D75FD00432438 /* VehicleAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = F124AE71175D75FD00432438 /* VehicleAnnotationView.m */; };
 		F16CBF05175D444C0069CF26 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F16CBF04175D444C0069CF26 /* UIKit.framework */; };
 		F16CBF07175D444C0069CF26 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F16CBF06175D444C0069CF26 /* Foundation.framework */; };
 		F16CBF09175D444C0069CF26 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F16CBF08175D444C0069CF26 /* CoreGraphics.framework */; };
@@ -19,9 +20,24 @@
 		F16CBF1E175D444C0069CF26 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F16CBF1C175D444C0069CF26 /* MainStoryboard_iPhone.storyboard */; };
 		F16CBF21175D444C0069CF26 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F16CBF1F175D444C0069CF26 /* MainStoryboard_iPad.storyboard */; };
 		F16CBF24175D444C0069CF26 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F16CBF23175D444C0069CF26 /* ViewController.m */; };
+		F16CBF2B175D46160069CF26 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F16CBF2A175D46160069CF26 /* MapKit.framework */; };
+		F16CBF38175D49E50069CF26 /* base64.c in Sources */ = {isa = PBXBuildFile; fileRef = F16CBF31175D49E50069CF26 /* base64.c */; };
+		F16CBF39175D49E50069CF26 /* NSData+SRB64Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = F16CBF34175D49E50069CF26 /* NSData+SRB64Additions.m */; };
+		F16CBF3A175D49E50069CF26 /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = F16CBF37175D49E50069CF26 /* SRWebSocket.m */; };
+		F16CBF3C175D4B150069CF26 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F16CBF3B175D4B150069CF26 /* libicucore.dylib */; };
+		F16CBF3E175D4B1D0069CF26 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F16CBF3D175D4B1D0069CF26 /* CFNetwork.framework */; };
+		F16CBF40175D4B260069CF26 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F16CBF3F175D4B260069CF26 /* Security.framework */; };
+		F16CBF43175D4C640069CF26 /* VehicleAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = F16CBF42175D4C640069CF26 /* VehicleAnnotation.m */; };
+		F1D42EB2175D85FE00BD04D5 /* UIColor+HexString.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D42EB1175D85FE00BD04D5 /* UIColor+HexString.m */; };
+		F1D50D19175DA22200122413 /* Busdrone-blue-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F1D50D18175DA22200122413 /* Busdrone-blue-icon.png */; };
+		F1D50D1C175DA2A500122413 /* Busdrone-blue-icon-large.png in Resources */ = {isa = PBXBuildFile; fileRef = F1D50D1B175DA2A500122413 /* Busdrone-blue-icon-large.png */; };
+		F1D50D1E175DA53D00122413 /* Busdrone-blue-icon-72x72.png in Resources */ = {isa = PBXBuildFile; fileRef = F1D50D1D175DA53D00122413 /* Busdrone-blue-icon-72x72.png */; };
+		F1D50D20175DA56C00122413 /* Busdrone-blue-icon-144x144.png in Resources */ = {isa = PBXBuildFile; fileRef = F1D50D1F175DA56C00122413 /* Busdrone-blue-icon-144x144.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F124AE70175D75FD00432438 /* VehicleAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VehicleAnnotationView.h; sourceTree = "<group>"; };
+		F124AE71175D75FD00432438 /* VehicleAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VehicleAnnotationView.m; sourceTree = "<group>"; };
 		F16CBF00175D444C0069CF26 /* Busdrone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Busdrone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F16CBF04175D444C0069CF26 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F16CBF06175D444C0069CF26 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -39,6 +55,25 @@
 		F16CBF20175D444C0069CF26 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		F16CBF22175D444C0069CF26 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		F16CBF23175D444C0069CF26 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		F16CBF2A175D46160069CF26 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		F16CBF31175D49E50069CF26 /* base64.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = base64.c; sourceTree = "<group>"; };
+		F16CBF32175D49E50069CF26 /* base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = base64.h; sourceTree = "<group>"; };
+		F16CBF33175D49E50069CF26 /* NSData+SRB64Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+SRB64Additions.h"; sourceTree = "<group>"; };
+		F16CBF34175D49E50069CF26 /* NSData+SRB64Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+SRB64Additions.m"; sourceTree = "<group>"; };
+		F16CBF35175D49E50069CF26 /* SocketRocket-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SocketRocket-Prefix.pch"; sourceTree = "<group>"; };
+		F16CBF36175D49E50069CF26 /* SRWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRWebSocket.h; sourceTree = "<group>"; };
+		F16CBF37175D49E50069CF26 /* SRWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRWebSocket.m; sourceTree = "<group>"; };
+		F16CBF3B175D4B150069CF26 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		F16CBF3D175D4B1D0069CF26 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		F16CBF3F175D4B260069CF26 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		F16CBF41175D4C640069CF26 /* VehicleAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VehicleAnnotation.h; sourceTree = "<group>"; };
+		F16CBF42175D4C640069CF26 /* VehicleAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VehicleAnnotation.m; sourceTree = "<group>"; };
+		F1D42EB0175D85FE00BD04D5 /* UIColor+HexString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HexString.h"; sourceTree = "<group>"; };
+		F1D42EB1175D85FE00BD04D5 /* UIColor+HexString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexString.m"; sourceTree = "<group>"; };
+		F1D50D18175DA22200122413 /* Busdrone-blue-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Busdrone-blue-icon.png"; sourceTree = "<group>"; };
+		F1D50D1B175DA2A500122413 /* Busdrone-blue-icon-large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Busdrone-blue-icon-large.png"; sourceTree = "<group>"; };
+		F1D50D1D175DA53D00122413 /* Busdrone-blue-icon-72x72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Busdrone-blue-icon-72x72.png"; sourceTree = "<group>"; };
+		F1D50D1F175DA56C00122413 /* Busdrone-blue-icon-144x144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Busdrone-blue-icon-144x144.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +81,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F16CBF40175D4B260069CF26 /* Security.framework in Frameworks */,
+				F16CBF3E175D4B1D0069CF26 /* CFNetwork.framework in Frameworks */,
+				F16CBF3C175D4B150069CF26 /* libicucore.dylib in Frameworks */,
+				F16CBF2B175D46160069CF26 /* MapKit.framework in Frameworks */,
 				F16CBF05175D444C0069CF26 /* UIKit.framework in Frameworks */,
 				F16CBF07175D444C0069CF26 /* Foundation.framework in Frameworks */,
 				F16CBF09175D444C0069CF26 /* CoreGraphics.framework in Frameworks */,
@@ -58,6 +97,16 @@
 		F16CBEF5175D444B0069CF26 = {
 			isa = PBXGroup;
 			children = (
+				F1D50D1F175DA56C00122413 /* Busdrone-blue-icon-144x144.png */,
+				F1D50D1D175DA53D00122413 /* Busdrone-blue-icon-72x72.png */,
+				F1D50D1B175DA2A500122413 /* Busdrone-blue-icon-large.png */,
+				F1D50D18175DA22200122413 /* Busdrone-blue-icon.png */,
+				F1D42EAE175D85E500BD04D5 /* lib */,
+				F16CBF3F175D4B260069CF26 /* Security.framework */,
+				F16CBF3D175D4B1D0069CF26 /* CFNetwork.framework */,
+				F16CBF3B175D4B150069CF26 /* libicucore.dylib */,
+				F16CBF30175D49E50069CF26 /* SocketRocket */,
+				F16CBF2A175D46160069CF26 /* MapKit.framework */,
 				F16CBF0A175D444C0069CF26 /* Busdrone */,
 				F16CBF03175D444C0069CF26 /* Frameworks */,
 				F16CBF01175D444C0069CF26 /* Products */,
@@ -92,6 +141,10 @@
 				F16CBF22175D444C0069CF26 /* ViewController.h */,
 				F16CBF23175D444C0069CF26 /* ViewController.m */,
 				F16CBF0B175D444C0069CF26 /* Supporting Files */,
+				F16CBF41175D4C640069CF26 /* VehicleAnnotation.h */,
+				F16CBF42175D4C640069CF26 /* VehicleAnnotation.m */,
+				F124AE70175D75FD00432438 /* VehicleAnnotationView.h */,
+				F124AE71175D75FD00432438 /* VehicleAnnotationView.m */,
 			);
 			path = Busdrone;
 			sourceTree = "<group>";
@@ -108,6 +161,29 @@
 				F16CBF1A175D444C0069CF26 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F16CBF30175D49E50069CF26 /* SocketRocket */ = {
+			isa = PBXGroup;
+			children = (
+				F16CBF31175D49E50069CF26 /* base64.c */,
+				F16CBF32175D49E50069CF26 /* base64.h */,
+				F16CBF33175D49E50069CF26 /* NSData+SRB64Additions.h */,
+				F16CBF34175D49E50069CF26 /* NSData+SRB64Additions.m */,
+				F16CBF35175D49E50069CF26 /* SocketRocket-Prefix.pch */,
+				F16CBF36175D49E50069CF26 /* SRWebSocket.h */,
+				F16CBF37175D49E50069CF26 /* SRWebSocket.m */,
+			);
+			path = SocketRocket;
+			sourceTree = "<group>";
+		};
+		F1D42EAE175D85E500BD04D5 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				F1D42EB0175D85FE00BD04D5 /* UIColor+HexString.h */,
+				F1D42EB1175D85FE00BD04D5 /* UIColor+HexString.m */,
+			);
+			name = lib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,6 +243,10 @@
 				F16CBF1B175D444C0069CF26 /* Default-568h@2x.png in Resources */,
 				F16CBF1E175D444C0069CF26 /* MainStoryboard_iPhone.storyboard in Resources */,
 				F16CBF21175D444C0069CF26 /* MainStoryboard_iPad.storyboard in Resources */,
+				F1D50D19175DA22200122413 /* Busdrone-blue-icon.png in Resources */,
+				F1D50D1C175DA2A500122413 /* Busdrone-blue-icon-large.png in Resources */,
+				F1D50D1E175DA53D00122413 /* Busdrone-blue-icon-72x72.png in Resources */,
+				F1D50D20175DA56C00122413 /* Busdrone-blue-icon-144x144.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,6 +260,12 @@
 				F16CBF11175D444C0069CF26 /* main.m in Sources */,
 				F16CBF15175D444C0069CF26 /* AppDelegate.m in Sources */,
 				F16CBF24175D444C0069CF26 /* ViewController.m in Sources */,
+				F16CBF38175D49E50069CF26 /* base64.c in Sources */,
+				F16CBF39175D49E50069CF26 /* NSData+SRB64Additions.m in Sources */,
+				F16CBF3A175D49E50069CF26 /* SRWebSocket.m in Sources */,
+				F16CBF43175D4C640069CF26 /* VehicleAnnotation.m in Sources */,
+				F124AE72175D75FD00432438 /* VehicleAnnotationView.m in Sources */,
+				F1D42EB2175D85FE00BD04D5 /* UIColor+HexString.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,10 +354,13 @@
 		F16CBF28175D444C0069CF26 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Busdrone/Busdrone-Prefix.pch";
 				INFOPLIST_FILE = "Busdrone/Busdrone-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -279,10 +368,13 @@
 		F16CBF29175D444C0069CF26 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Busdrone/Busdrone-Prefix.pch";
 				INFOPLIST_FILE = "Busdrone/Busdrone-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -306,6 +398,7 @@
 				F16CBF29175D444C0069CF26 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

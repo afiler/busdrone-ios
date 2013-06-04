@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
+#import "SRWebSocket.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <MKMapViewDelegate, SRWebSocketDelegate>
 
 @end
