@@ -14,9 +14,11 @@
 @property (nonatomic, copy) NSString *route;
 @property (nonatomic, copy) NSString *destination;
 @property (nonatomic, copy) NSString *color;
+@property (nonatomic, copy) NSString *uid;
 @property (nonatomic, assign) CLLocationCoordinate2D coordinate;
 
 - (id)initWithDict:(NSDictionary*)dict;
 - (void)updateWithDict:(NSDictionary *)dict;
+- (NSString *)getAnnotationIdentifier;
 
 @end

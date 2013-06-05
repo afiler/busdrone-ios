@@ -18,7 +18,7 @@ static CGFloat kViewLength = 17;
 static CGFloat kLeftMargin = 15.0;
 static CGFloat kRightMargin = 5.0;
 static CGFloat kTopMargin = 0;
-static CGFloat kBottomMargin = 5.0;
+//static CGFloat kBottomMargin = 5.0;
 static CGFloat kRoundBoxLeft = 10.0;
 
 @interface VehicleAnnotationView ()
@@ -42,7 +42,7 @@ static CGFloat kRoundBoxLeft = 10.0;
         VehicleAnnotation *vehicleAnnotation = (VehicleAnnotation *)self.annotation;
         self.annotationLabel.font = [UIFont systemFontOfSize:12.0];
         self.annotationLabel.textColor = [UIColor whiteColor];
-        self.annotationLabel.text = vehicleAnnotation.route;
+        self.annotationLabel.text = [vehicleAnnotation route];
         [self.annotationLabel sizeToFit];   // get the right vertical size
         
         // compute the optimum width of our annotation, based on the size of our annotation label
@@ -64,17 +64,6 @@ static CGFloat kRoundBoxLeft = 10.0;
         newFrame.size.width = self.frame.size.width - kRightMargin - kLeftMargin;
         self.annotationLabel.frame = newFrame;
         [self addSubview:self.annotationLabel];
-        
-        // add the annotation's image
-        // the annotation image snaps to the width and height of this view
-        /*_annotationImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:vehicleAnnotation.imageName]];
-        self.annotationImage.contentMode = UIViewContentModeScaleAspectFit;
-        self.annotationImage.frame =
-        CGRectMake(kLeftMargin,
-                   self.annotationLabel.frame.origin.y + self.annotationLabel.frame.size.height + kTopMargin,
-                   self.frame.size.width - kRightMargin - kLeftMargin,
-                   self.frame.size.height - self.annotationLabel.frame.size.height - kTopMargin*2 - kBottomMargin);
-        [self addSubview:self.annotationImage];*/
     }
     
     return self;

@@ -18,6 +18,7 @@
 }
 
 - (void)updateWithDict:(NSDictionary *)dict {
+    _uid = [dict objectForKey:@"uid"];
     _route = [dict objectForKey:@"route"];
     _destination = [dict objectForKey:@"destination"];
     _color = [dict objectForKey:@"color"];
@@ -30,6 +31,7 @@
 
 - (NSString *)title {
     return _route;
+    //return [NSString stringWithFormat:@"[%@] %@", _route, _uid];
 }
 
 - (NSString *)subtitle {
@@ -38,6 +40,10 @@
 
 - (CLLocationCoordinate2D)coordinate {
     return _coordinate;
+}
+
+- (NSString *)getAnnotationIdentifier {
+    return [NSString stringWithFormat:@"%@/%@", _route, _color];
 }
 
 @end
