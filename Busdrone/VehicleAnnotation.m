@@ -7,6 +7,7 @@
 //
 
 #import "VehicleAnnotation.h"
+#import "MKPolyline+EncodedString.h"
 
 @implementation VehicleAnnotation
 
@@ -20,6 +21,8 @@
 - (void)updateWithDict:(NSDictionary *)dict {
     _uid = [dict objectForKey:@"uid"];
     _route = [dict objectForKey:@"route"];
+    _dataProvider = [dict objectForKey:@"dataProvider"];
+    _tripId = [dict objectForKey:@"tripId"];
     _destination = [dict objectForKey:@"destination"];
     _color = [dict objectForKey:@"color"];
     
@@ -44,6 +47,10 @@
 
 - (NSString *)getAnnotationIdentifier {
     return [NSString stringWithFormat:@"%@/%@", _route, _color];
+}
+
+- (NSString *)tripUid {
+    return [NSString stringWithFormat:@"%@/%@", _dataProvider, _tripId];
 }
 
 @end

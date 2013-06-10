@@ -1,9 +1,0 @@
-FDCurlViewControl
-
-A component that recreates the semi curl animation used on the Maps app.
-
-Dependencies:
-* QuartzCore.framework
-
-License:
-* The new BSD license

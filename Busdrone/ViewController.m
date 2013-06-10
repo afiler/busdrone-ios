@@ -10,18 +10,21 @@
 #import "SRWebSocket.h"
 #import "VehicleAnnotation.h"
 #import "VehicleAnnotationView.h"
-#import "MapOptionsView.h"
+#import "MKPolyline+EncodedString.h"
 
 @implementation ViewController {
     SRWebSocket *_webSocket;
     NSMutableDictionary *vehicles;
+    NSMutableDictionary *tripPolylines;
     bool locationSet;
     MKUserTrackingBarButtonItem *trackingButton;
+    NSString *selectedTripUid;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     NSLog(@"viewWillAppear");
     vehicles = [NSMutableDictionary dictionaryWithCapacity:1024];
+    tripPolylines = [NSMutableDictionary dictionaryWithCapacity:32];
     
     CLLocationCoordinate2D zoomLocation;
     zoomLocation.latitude = 47.606395;
@@ -31,29 +34,13 @@
     
     [_mapView setRegion:viewRegion animated:YES];
     [_mapView setDelegate:self];
+    [_mapView setAutoresizingMask:
+     (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight)];
     //[_mapView setMapType:MKMapTypeHybrid];
 
     trackingButton = [[MKUserTrackingBarButtonItem alloc] initWithMapView:_mapView];
     
-    MapOptionsView *optionsView = [[MapOptionsView alloc] initWithFrame:self.view.bounds];
-    [optionsView setPaddingTop:round(CGRectGetHeight(self.view.frame)/2.0f)];
-    [optionsView setMapView:self.mapView];
-    [optionsView setDelegate:self];
-    [optionsView setAutoresizingMask:UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth];
-    self.optionsView = optionsView;
-    [self.view insertSubview:self.optionsView belowSubview:self.mapView];
-    
-    FDCurlViewControl *curlButton = [[FDCurlViewControl alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 30.0f, 30.0f)];
-    [curlButton setAutoresizingMask:UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth];
-    [curlButton setHidesWhenAnimating:NO];
-    [curlButton setTargetView:self.mapView];
-    UIBarButtonItem *curlButtonItem = [[UIBarButtonItem alloc] initWithCustomView:curlButton];
-    self.curlButton = curlButton;
-    UIBarButtonItem *spacerItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    
-    
-    
-    [_toolbar setItems:[NSArray arrayWithObjects:trackingButton, spacerItem, curlButtonItem, nil] animated:YES];
+    [_toolbar setItems:[NSArray arrayWithObjects:trackingButton, nil] animated:YES];
     [_toolbar setTranslucent:YES];
     
     [self reconnect];
@@ -85,6 +72,7 @@
     [_webSocket close];
     
     _webSocket = [[SRWebSocket alloc] initWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"ws://busdrone.com:28737/"]]];
+    //_webSocket = [[SRWebSocket alloc] initWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"ws://10.0.79.64:28741/"]]];
     _webSocket.delegate = self;
     
     [_webSocket open];
@@ -129,6 +117,8 @@
     } else if ([type isEqualToString:@"remove_vehicle"]) {
         //NSLog(@"message: remove_vehicle");
         [self removeMarker:[data objectForKey:@"vehicle_uid"]];
+    } else if ([type isEqualToString:@"trip_polyline"]) {
+        [self addTripPolylineWithEncodedString:[data objectForKey:@"polyline"] tripUid:[data objectForKey:@"trip_uid"]];
     }
     
 }
@@ -160,7 +150,7 @@
 
 - (void)removeMarker:(NSString *)uid;
 {
-    NSLog(@"Removing %@", uid);
+    //NSLog(@"Removing %@", uid);
     VehicleAnnotation *marker = [vehicles objectForKey:uid];
     
     if (marker) {
@@ -169,10 +159,63 @@
     }
 }
 
+- (void)addTripPolylineWithEncodedString:(NSString *)encodedString tripUid:(NSString *)tripUid;
+{
+    NSLog(@"addTripPolylineWithEncodedString: %@, %@", tripUid, encodedString);
+    MKPolyline *polyline = [MKPolyline polylineWithEncodedString:encodedString];
+    NSLog(@"polyline: %@", polyline);
+    [tripPolylines setObject:polyline forKey:tripUid];
+    
+    if (!selectedTripUid) return;
+    [_mapView addOverlay:[tripPolylines objectForKey:selectedTripUid]];
+}
+
+- (void)requestTripPolyline:(NSString *)tripUid;
+{
+    NSLog(@"requestTripPolyline");
+    
+    MKPolyline *polyline = [tripPolylines objectForKey:tripUid];
+    
+    if (polyline) {
+        [_mapView addOverlay:polyline];
+    } else {
+        NSMutableDictionary *request = [NSMutableDictionary dictionaryWithCapacity:4];
+        
+        [request setObject:@"type" forKey:@"trip_polyline"];
+        [request setObject:tripUid forKey:@"trip_uid"];
+        
+        NSString *json = [[NSString alloc] initWithData:[NSJSONSerialization dataWithJSONObject:request options:0 error:nil] encoding:NSUTF8StringEncoding];
+
+        
+        NSLog(@"JSON: %@", json);
+        [_webSocket send:json];
+    }
+}
+
+- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view;
+{
+    NSLog(@"didSelectAnnotationView");
+    if (![view.annotation isKindOfClass:[VehicleAnnotation class]]) return;
+    VehicleAnnotation *annotation = (VehicleAnnotation*) view.annotation;
+    
+    [self requestTripPolyline:[annotation tripUid]];
+    
+    selectedTripUid = [annotation tripUid];
+}
+
+
+- (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view
+{
+    [_mapView removeOverlay:[tripPolylines objectForKey:selectedTripUid]];
+    selectedTripUid = nil;
+}
+
 - (MKAnnotationView *)mapView:(MKMapView *)theMapView viewForAnnotation:(id <MKAnnotation>)annotation
 {
-    if (![annotation isKindOfClass:[VehicleAnnotation class]]) return nil;
-    
+    if (![annotation isKindOfClass:[VehicleAnnotation class]]) {
+        NSLog(@"Is another class");
+        return nil;
+    }
     VehicleAnnotation *v = (VehicleAnnotation *)annotation;
     
     NSString *VehicleAnnotationIdentifier = [v getAnnotationIdentifier];
@@ -185,6 +228,17 @@
         annotationView.canShowCallout = YES;
     }
     return annotationView;
+}
+- (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id <MKOverlay>)overlay {
+    MKPolylineView *view = [[MKPolylineView alloc] initWithOverlay:overlay];
+
+    if ([overlay isKindOfClass:[MKPolyline class]]) {
+        view.strokeColor = [UIColor grayColor];
+        view.lineWidth = 3;
+        
+    }
+
+    return view;
 }
 
 - (void)locationManager:(CLLocationManager *)manager
@@ -199,34 +253,9 @@
     locationSet = true;
 }
 
-- (void) checkMapFitsNeatly {
-    MKMapRect currentRect = _mapView.visibleMapRect;
-    MKMapPoint bottomRight = MKMapPointMake(currentRect.size.width+currentRect.origin.x, currentRect.size.height+currentRect.origin.y);
-    
-    CLLocationCoordinate2D bottomRightCoordinate = MKCoordinateForMapPoint(bottomRight);
-    
-    if ((bottomRightCoordinate.latitude<-85)||(bottomRightCoordinate.longitude>180)) {
-        // map is showing grey areas, adjust
-        float deltaLatitude = fminf(-85-bottomRightCoordinate.latitude,0);
-        float deltaLongitude = fmaxf(bottomRightCoordinate.longitude-180,0);
-        CLLocationCoordinate2D topLeftCoordinate = MKCoordinateForMapPoint(MKMapPointMake(currentRect.origin.x, currentRect.origin.y));
-        CLLocationCoordinate2D newTopLeftCoordinate = CLLocationCoordinate2DMake(topLeftCoordinate.latitude+deltaLatitude,topLeftCoordinate.longitude-deltaLongitude);
-        MKMapPoint newTopLeftVisiblePoint = MKMapPointForCoordinate(newTopLeftCoordinate);
-        MKMapRect newMapRect = currentRect;
-        newMapRect.origin = newTopLeftVisiblePoint;
-        [_mapView setVisibleMapRect:newMapRect];
-    }
-}
-
--(void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
-    [self checkMapFitsNeatly];
-}
-
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
 {
-    
     return YES;
-    
 }
 
 - (void)viewDidLoad
@@ -239,12 +268,6 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-#pragma mark -
-#pragma mark CurlMapOptionsViewDelegate methods
-- (void)mapOptionsViewDidCaptureTouchOnPaddingRegion:(MapOptionsView *)mapOptionsView {
-    [self.curlButton curlViewDown];
 }
 
 - (void)viewDidUnload {

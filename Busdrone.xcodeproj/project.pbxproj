@@ -29,12 +29,8 @@
 		F16CBF40175D4B260069CF26 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F16CBF3F175D4B260069CF26 /* Security.framework */; };
 		F16CBF43175D4C640069CF26 /* VehicleAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = F16CBF42175D4C640069CF26 /* VehicleAnnotation.m */; };
 		F19BB086175EB5E000F0E297 /* HoverToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = F19BB085175EB5E000F0E297 /* HoverToolbar.m */; };
-		F19BB08D175ED7CB00F0E297 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = F19BB088175ED7CB00F0E297 /* .gitignore */; };
-		F19BB08E175ED7CB00F0E297 /* FDCurlViewControl.m in Sources */ = {isa = PBXBuildFile; fileRef = F19BB08A175ED7CB00F0E297 /* FDCurlViewControl.m */; };
-		F19BB08F175ED7CB00F0E297 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = F19BB08B175ED7CB00F0E297 /* LICENSE */; };
-		F19BB090175ED7CB00F0E297 /* README in Resources */ = {isa = PBXBuildFile; fileRef = F19BB08C175ED7CB00F0E297 /* README */; };
 		F19BB092175EDCD600F0E297 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F19BB091175EDCD600F0E297 /* QuartzCore.framework */; };
-		F19BB095175EDD6C00F0E297 /* MapOptionsView.m in Sources */ = {isa = PBXBuildFile; fileRef = F19BB094175EDD6C00F0E297 /* MapOptionsView.m */; };
+		F19BB09C175FB81300F0E297 /* MKPolyline+EncodedString.m in Sources */ = {isa = PBXBuildFile; fileRef = F19BB09B175FB81300F0E297 /* MKPolyline+EncodedString.m */; };
 		F1D42EB2175D85FE00BD04D5 /* UIColor+HexString.m in Sources */ = {isa = PBXBuildFile; fileRef = F1D42EB1175D85FE00BD04D5 /* UIColor+HexString.m */; };
 		F1D50D19175DA22200122413 /* Busdrone-blue-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F1D50D18175DA22200122413 /* Busdrone-blue-icon.png */; };
 		F1D50D1C175DA2A500122413 /* Busdrone-blue-icon-large.png in Resources */ = {isa = PBXBuildFile; fileRef = F1D50D1B175DA2A500122413 /* Busdrone-blue-icon-large.png */; };
@@ -78,14 +74,9 @@
 		F16CBF42175D4C640069CF26 /* VehicleAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VehicleAnnotation.m; sourceTree = "<group>"; };
 		F19BB084175EB5E000F0E297 /* HoverToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HoverToolbar.h; sourceTree = "<group>"; };
 		F19BB085175EB5E000F0E297 /* HoverToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HoverToolbar.m; sourceTree = "<group>"; };
-		F19BB088175ED7CB00F0E297 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		F19BB089175ED7CB00F0E297 /* FDCurlViewControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDCurlViewControl.h; sourceTree = "<group>"; };
-		F19BB08A175ED7CB00F0E297 /* FDCurlViewControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDCurlViewControl.m; sourceTree = "<group>"; };
-		F19BB08B175ED7CB00F0E297 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		F19BB08C175ED7CB00F0E297 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		F19BB091175EDCD600F0E297 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		F19BB093175EDD6C00F0E297 /* MapOptionsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapOptionsView.h; sourceTree = "<group>"; };
-		F19BB094175EDD6C00F0E297 /* MapOptionsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapOptionsView.m; sourceTree = "<group>"; };
+		F19BB09A175FB81300F0E297 /* MKPolyline+EncodedString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKPolyline+EncodedString.h"; sourceTree = "<group>"; };
+		F19BB09B175FB81300F0E297 /* MKPolyline+EncodedString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKPolyline+EncodedString.m"; sourceTree = "<group>"; };
 		F1D42EB0175D85FE00BD04D5 /* UIColor+HexString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HexString.h"; sourceTree = "<group>"; };
 		F1D42EB1175D85FE00BD04D5 /* UIColor+HexString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexString.m"; sourceTree = "<group>"; };
 		F1D50D18175DA22200122413 /* Busdrone-blue-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Busdrone-blue-icon.png"; sourceTree = "<group>"; };
@@ -119,7 +110,6 @@
 			isa = PBXGroup;
 			children = (
 				F19BB091175EDCD600F0E297 /* QuartzCore.framework */,
-				F19BB087175ED7CB00F0E297 /* FDCurlViewControl */,
 				F1D50D26175E756600122413 /* CoreLocation.framework */,
 				F1D50D21175DDF0400122413 /* icons */,
 				F1D42EAE175D85E500BD04D5 /* lib */,
@@ -168,8 +158,6 @@
 				F124AE71175D75FD00432438 /* VehicleAnnotationView.m */,
 				F19BB084175EB5E000F0E297 /* HoverToolbar.h */,
 				F19BB085175EB5E000F0E297 /* HoverToolbar.m */,
-				F19BB093175EDD6C00F0E297 /* MapOptionsView.h */,
-				F19BB094175EDD6C00F0E297 /* MapOptionsView.m */,
 			);
 			path = Busdrone;
 			sourceTree = "<group>";
@@ -202,23 +190,13 @@
 			path = SocketRocket;
 			sourceTree = "<group>";
 		};
-		F19BB087175ED7CB00F0E297 /* FDCurlViewControl */ = {
-			isa = PBXGroup;
-			children = (
-				F19BB088175ED7CB00F0E297 /* .gitignore */,
-				F19BB089175ED7CB00F0E297 /* FDCurlViewControl.h */,
-				F19BB08A175ED7CB00F0E297 /* FDCurlViewControl.m */,
-				F19BB08B175ED7CB00F0E297 /* LICENSE */,
-				F19BB08C175ED7CB00F0E297 /* README */,
-			);
-			path = FDCurlViewControl;
-			sourceTree = "<group>";
-		};
 		F1D42EAE175D85E500BD04D5 /* lib */ = {
 			isa = PBXGroup;
 			children = (
 				F1D42EB0175D85FE00BD04D5 /* UIColor+HexString.h */,
 				F1D42EB1175D85FE00BD04D5 /* UIColor+HexString.m */,
+				F19BB09A175FB81300F0E297 /* MKPolyline+EncodedString.h */,
+				F19BB09B175FB81300F0E297 /* MKPolyline+EncodedString.m */,
 			);
 			name = lib;
 			sourceTree = "<group>";
@@ -295,9 +273,6 @@
 				F1D50D1C175DA2A500122413 /* Busdrone-blue-icon-large.png in Resources */,
 				F1D50D1E175DA53D00122413 /* Busdrone-blue-icon-72x72.png in Resources */,
 				F1D50D20175DA56C00122413 /* Busdrone-blue-icon-144x144.png in Resources */,
-				F19BB08D175ED7CB00F0E297 /* .gitignore in Resources */,
-				F19BB08F175ED7CB00F0E297 /* LICENSE in Resources */,
-				F19BB090175ED7CB00F0E297 /* README in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,8 +293,7 @@
 				F124AE72175D75FD00432438 /* VehicleAnnotationView.m in Sources */,
 				F1D42EB2175D85FE00BD04D5 /* UIColor+HexString.m in Sources */,
 				F19BB086175EB5E000F0E297 /* HoverToolbar.m in Sources */,
-				F19BB08E175ED7CB00F0E297 /* FDCurlViewControl.m in Sources */,
-				F19BB095175EDD6C00F0E297 /* MapOptionsView.m in Sources */,
+				F19BB09C175FB81300F0E297 /* MKPolyline+EncodedString.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

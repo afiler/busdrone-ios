@@ -11,15 +11,11 @@
 #import "SRWebSocket.h"
 #import <CoreLocation/CoreLocation.h>
 #import "HoverToolbar.h"
-#import "MapOptionsView.h"
-#import "FDCurlViewControl.h"
 
-@interface ViewController : UIViewController <MKMapViewDelegate, SRWebSocketDelegate, CLLocationManagerDelegate, MapOptionsViewDelegate>
+@interface ViewController : UIViewController <MKMapViewDelegate, SRWebSocketDelegate, CLLocationManagerDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (nonatomic, retain) CLLocationManager *locationManager;
 @property (weak, nonatomic) IBOutlet HoverToolbar *toolbar;
-@property (nonatomic, retain) MapOptionsView *optionsView;
-@property (nonatomic, retain) FDCurlViewControl *curlButton;
 
 @end
